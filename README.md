@@ -1,5 +1,5 @@
 # Guy In The Sky
-## Platformer Game [Play here](https://aydentownsley.github.io/GuyInTheSky/)
+## Platformer Game: [Play here](https://aydentownsley.github.io/GuyInTheSky/)
 ---
 
 ## Creating a 3D game in Unity
