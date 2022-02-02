@@ -1,12 +1,10 @@
 # Guy In The Sky
-## Platformer Game
+## Platformer Game [Play here](https://aydentownsley.github.io/GuyInTheSky/)
 ---
 
 ## Creating a 3D game in Unity
 
 *Guy in the sky was created using the Unity Game Engine and free 3D resources. The goal is to move Guy from his starting island to the end island by jumping and running. Three level scenes exist. Each level will run a timer to keep track of how fast the player completes the level.*
-
-Game can be played [here](https://aydentownsley.github.io/GuyInTheSky/)
 
 **Concepts:**
 1. Collisions
