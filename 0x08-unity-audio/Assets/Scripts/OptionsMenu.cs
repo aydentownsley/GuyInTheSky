@@ -15,9 +15,12 @@ public class OptionsMenu : MonoBehaviour
     float BGM_level;
     float SFX_level;
     int yAxis;
-    // Start is called before the first frame update
+
     void Start()
     {
+        // Checks player prefs for wether
+        // inverted y axis option is checked,
+        // and for audio options
         if (PlayerPrefs.GetInt("yAxis") == 1)
             yAxisToggle.isOn = true;
         else
@@ -27,16 +30,14 @@ public class OptionsMenu : MonoBehaviour
         BGM.value = PlayerPrefs.GetFloat("BGM_Volume");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
+    // Loads Main menu when backing out of menu
     public void Back()
     {
         SceneManager.LoadScene("MainMenu");
     }
 
+    // Applys correct player pref values
+    // and stores in accessible variables
     public void ApplyPrefs()
     {
         if (yAxisToggle.isOn)
@@ -57,6 +58,7 @@ public class OptionsMenu : MonoBehaviour
         SceneManager.LoadScene(PlayerPrefs.GetString("scene"));
     }
 
+    // Does math for slider to volume level
     public void SetSFXLevel(float slider_value)
     {
         Mixer.SetFloat("SFX_Run", Mathf.Log10(slider_value) * 20 - 20);
@@ -65,6 +67,7 @@ public class OptionsMenu : MonoBehaviour
         // SFX_level = slider_value;
     }
 
+    // Does math for slider to volume level
     public void SetBGMLevel(float slider_value)
     {
         Mixer.SetFloat("BGM", Mathf.Log10(slider_value) * 20);

@@ -6,12 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    // private CharacterController controller;
-    // private Vector3 playerVelocity;
-    // private bool groundedPlayer;
-    // public float playerSpeed = 10.0f;
-    // public float jumpHeight = 1.0f;
-    // public float gravityValue = -9.81f;
     public Vector3 startposition = new Vector3(0, 25, 0);
     private bool yAxis = false;
     public GameObject player;
@@ -19,6 +13,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        // Gets current scene, so player can return to correct scene
+        // if they use a scene menu
         PlayerPrefs.SetString("scene", SceneManager.GetActiveScene().name);
         if (PlayerPrefs.GetInt("yAxis") == 1)
             yAxis = true;
@@ -28,9 +24,9 @@ public class PlayerController : MonoBehaviour
         GameObject.Find("Freelook").GetComponent<CinemachineFreeLook>().m_YAxis.m_InvertInput = yAxis;
     }
 
+    // Turns of camera controll when player falls
     void FixedUpdate()
     {
-
         if (transform.position.y < -25)
         {
             Freelook.GetComponent<CinemachineFreeLook>().enabled = false;
@@ -41,6 +37,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Lets player "stick" to moving platforms
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("moving"))
@@ -49,6 +46,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Return transform to normal when hopping off of moving platforms
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("moving"))

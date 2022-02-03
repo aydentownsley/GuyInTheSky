@@ -15,10 +15,7 @@ public class PauseMenu : MonoBehaviour
     public AudioMixerSnapshot audio_paused;
     public AudioMixerSnapshot audio_unpaused;
 
-    void Start()
-    {
-    }
-
+    // Starts timer when script enabled
     void OnEnable()
     {
         Time.timeScale = 1;
@@ -27,6 +24,8 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
+        // Checks for escape key and handles wether
+        // game should pause or resume ("stops time")
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             paused = !paused;
@@ -48,6 +47,7 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    // enables pause menu
     public void AcvivateMenu()
     {
         paused = true;
@@ -55,6 +55,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
     }
 
+    // disables pause menu
     public void DeactivateMenu()
     {
         paused = false;
@@ -62,11 +63,13 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
+    // Loads Options Scene
     public void Options()
     {
         SceneManager.LoadScene("Options");
     }
 
+    // Resumes time and transitions audio
     public void Resume()
     {
         paused = false;
@@ -76,12 +79,14 @@ public class PauseMenu : MonoBehaviour
         audio_unpaused.TransitionTo(0.01f);
     }
 
+    // Restarts scene
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
     }
 
+    // Loads main menu Scene
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");

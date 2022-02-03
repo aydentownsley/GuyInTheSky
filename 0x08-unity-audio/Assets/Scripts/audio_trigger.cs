@@ -18,12 +18,13 @@ public class audio_trigger : MonoBehaviour
         Player.GetComponent<AudioSource>().clip = rock;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float bf = Input.GetAxis("Vertical");
         float s2s = Input.GetAxis("Horizontal");
 
+        // Checks if player is moving,
+        // then checks for material to play apporpriate sound
         if ((bf != 0 || s2s != 0) && Player.GetComponent<StarterAssets.ThirdPersonController>().Grounded == true)
         {
             if (surface == "grass")
@@ -43,6 +44,7 @@ public class audio_trigger : MonoBehaviour
         }
     }
 
+    // Plays correct landing sound depending on surface of collider
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("collision" + col);
@@ -67,6 +69,8 @@ public class audio_trigger : MonoBehaviour
         }
     }
 
+    // Stops sounds from playing when player is moving
+    // but in the air (falling or jumping)
     void OnTriggerExit(Collider col)
     {
         Player.GetComponent<AudioSource>().Stop();

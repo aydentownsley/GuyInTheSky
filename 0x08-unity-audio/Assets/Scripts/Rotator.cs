@@ -5,13 +5,8 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
     public float speed = 15.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
+    // Rotates any gameobject script is applied to at "speed"
     void Update()
     {
         transform.RotateAround(new Vector3(2, 0, 45), Vector3.up, speed * Time.deltaTime);

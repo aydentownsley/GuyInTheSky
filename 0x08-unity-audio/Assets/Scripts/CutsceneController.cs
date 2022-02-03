@@ -8,15 +8,17 @@ public class CutsceneController : MonoBehaviour
     public GameObject TimerCanvas;
     public GameObject CutSceneCamera;
     public GameObject Freelook;
-    // Start is called before the first frame update
+
     void Start()
     {
         Freelook.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // When cutscene is playing removes ability to move player
+        // So player starts at beginning. Only allows movement
+        // once cutscene is finished
         if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
             TimerCanvas.SetActive(true);

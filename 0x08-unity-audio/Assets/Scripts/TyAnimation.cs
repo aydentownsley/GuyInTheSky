@@ -16,6 +16,8 @@ public class TyAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Decided correct animation to apply to "Ty"
+        // depending on type of movement detected
         float translation = Input.GetAxis("Vertical");
         float rotation = Input.GetAxis("Horizontal");
 
