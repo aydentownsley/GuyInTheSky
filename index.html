@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body style="background-color: black">
+    <h1 style="text-align:center;color:white;font-family: Arial, Helvetica, sans-serif;">Platformer</h1>
+    <h2 style="text-align:center;color:white;font-family: Arial, Helvetica, sans-serif;">Play with Keyboard & Mouse OR Xbox Controller</h2>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -56,11 +58,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/New folder.loader.js";
+      var loaderUrl = buildUrl + "/Platformer.loader.js";
       var config = {
-        dataUrl: buildUrl + "/New folder.data",
-        frameworkUrl: buildUrl + "/New folder.framework.js",
-        codeUrl: buildUrl + "/New folder.wasm",
+        dataUrl: buildUrl + "/Platformer.data",
+        frameworkUrl: buildUrl + "/Platformer.framework.js",
+        codeUrl: buildUrl + "/Platformer.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Platformer",
